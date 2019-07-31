@@ -1,0 +1,46 @@
+Data Structure: refers to the storage of data in such a way that it can be used efficently.
+
+Algorithms are compared with each other on the basis of their "Time complexity and Memory space Consumed"
+There are different kind of Notation used to compare Algorithms.
+Time complexties
+1. Big O notation : upper Bound
+2. Omega notation : lower bound
+3. Theta notation : middle bound
+
+Then there are some case 1. Worst case
+                         2. Average case
+                         3. Best Case
+                         
+ARRAY: array is collecetion of homogenous elements have same data type.
+       We access arrays using index value => arr[0],arr[1],arr[2],arr[3]
+       To understand in detail lets take arr[3], this implies = base address of array "arr"(i.e arr[0] or arr) + sizeof(int)*3
+       So in the accessing any element of array using index, 2 operations are involved i.e. multiplication and summation.
+       So time consumed to exectue arr is fixed as two operations are involved.
+       
+RECURSION : Function calling itself is called recursion. I terminates when base case is reached
+           (NOTE: Recursion calls function again and again so consumes more memory, so its beneficial only when used for less time.)
+          
+       =>  The problems which can ebe solved using "Recursion" can also be solved using "Loops" but ever problem which can be solved
+           using "loops" is not necessarily solved using "Recurssion"
+           
+          Example: 
+          int main()
+          {
+          int k;
+          k = fun(3);
+          printf("%d",k);
+          }
+          
+          int fun(int a)
+          {
+          if(a==1)    // base statement
+          { return 1;}
+          s = a+fun(a-1);  // "fun' function is called again => "Recursion".
+          return s;
+          }
+          
+BACKTRACKING : It just means trying all possibilities, as sometimes its the best algorithm for a problem.
+               Backtracking is a method of exhausted search using divide and conquer.
+            => This is always slow.
+            
+       Recursion Problem 1: TOWER OF HANOI
