@@ -44,3 +44,16 @@ BACKTRACKING : It just means trying all possibilities, as sometimes its the best
             => This is always slow.
             
        Recursion Problem 1: TOWER OF HANOI
+       Total plates 4
+       Hint: odd plate(1st): 1 => 2 => 3 => 1 => 2 =>3 => 1 => 2 => 3
+            even plate(2nd): 1 => 3 => 2 => 1 => 3
+            odd plate (3rd): 1 => 2 => 3
+            eve plate (4th): 1 => 4
+            
+            order of steps
+            1st plate => 2nd plate => 1st => 3rd => 1st => 2nd => 1st => 4th => 1st => 2nd => 1st => 3rd => 1st => 2nd => 1st
+ 
+ Note: concluded by observing
+    => 1st step alway by plate 1 from 1st box to 2nd box, 
+       last step also always by plate 1 i.e from 2nd box to 3rd box. 
+    => Total number of steps = 15 in case of 4 plates which may mean = ((2^4)-1) => ((2^n)-1), where n = number of plates
