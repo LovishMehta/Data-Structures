@@ -10,13 +10,15 @@ Time complexties
 Then there are some case 1. Worst case
                          2. Average case
                          3. Best Case
-                         
+ #################################################################################################################################
+ 
 ARRAY: array is collecetion of homogenous elements have same data type.
        We access arrays using index value => arr[0],arr[1],arr[2],arr[3]
        To understand in detail lets take arr[3], this implies = base address of array "arr"(i.e arr[0] or arr) + sizeof(int)*3
        So in the accessing any element of array using index, 2 operations are involved i.e. multiplication and summation.
        So time consumed to exectue arr is fixed as two operations are involved.
        
+#####################################################################################################################################       
 RECURSION : Function calling itself is called recursion. I terminates when base case is reached
            (NOTE: Recursion calls function again and again so consumes more memory, so its beneficial only when used for less time.)
           
@@ -42,18 +44,73 @@ RECURSION : Function calling itself is called recursion. I terminates when base 
 BACKTRACKING : It just means trying all possibilities, as sometimes its the best algorithm for a problem.
                Backtracking is a method of exhausted search using divide and conquer.
             => This is always slow.
-            
-       Recursion Problem 1: TOWER OF HANOI
-       Total plates 4
-       Hint: odd plate(1st): 1 => 2 => 3 => 1 => 2 =>3 => 1 => 2 => 3
-            even plate(2nd): 1 => 3 => 2 => 1 => 3
-            odd plate (3rd): 1 => 2 => 3
-            eve plate (4th): 1 => 4
+    *************************************************************************************************************************************           
+      * Recursion Problem 1: TOWER OF HANOi
+     **********************************************************************************************************************************  
+     ** Even number of plates , so this algorith follwed
+      => Total plates 4
+      
+       (Here 1,2,3  represents 1st box, 2nd box, 3rd box )
+       Hint: odd plate(1st): 1st => 2 => 3 => 1 => 2 =>3 => 1 => 2 => 3 // 1st plate moves from box1 to box2, then box2 to box3, then box3 to box1, then box1 to box2 same order followed  
+            even plate(2nd): 1 => 3 => 2 => 1 => 3                      // 2nd plate moves from box1 to box 3, then box2 to box1, then box1 to box3 same order followed 
+            odd plate (3rd): 1 => 2 => 3                                // Same as first plate(odd plates) but less steps
+            eve plate (4th): 1 => 3                                     // Same as 2nd plate(even plate)but less steps
             
             order of steps
-            1st plate => 2nd plate => 1st => 3rd => 1st => 2nd => 1st => 4th => 1st => 2nd => 1st => 3rd => 1st => 2nd => 1st
+            (Here 1,2,3,4 represents 1st plate, 2nd plate, 3rd plate, 4th plate)  
+            1st plate => 2nd => 1st => 3rd => 1st => 2nd => 1st => 4th => 1st => 2nd => 1st => 3rd => 1st => 2nd => 1st
+     (refer link : https://en.wikipedia.org/wiki/Tower_of_Hanoi)
  
+ **  Even number of plates, so same algorith as 4 plates
+    => Total plates 2
+    
+    Steps followed
+    hint: odd plate(1st): 1 => 2 => 3     // 1st plate moves from box 1 to box 2 and then to box 3
+         even plate(2nd): 1=> 3           // 2nd plate moves from box 1 to box 3 
+        
+          
+    order of steps
+         (Here 1,2 represents 1st plate, 2nd plate)
+          1 => 2 => 1
+         (explanation: 1st plate moves first, then 2nd plate moves , then 1st plate moves again)
+  *************************************************************************************************************************************       
+   ** Odd number of plates here the algorithm becomes opposite to Even number of plates
+  
+  => Total plates 3
+   
+   Steps followed
+   hint: odd plate(1st): 1 => 3 => 2 => 1 => 3 // this step is followed by 2nd plate when total number of plates are even(e.g. 4 plates)
+        even plate(2nd): 1 => 2 => 3           // this step is followed by 1st plate when total number of plates are even
+         odd plate(3rd): 1 => 3
+         
+    order of steps (Note: order of steps are same for both even number of plates and odd number of plates)
+    1 => 2 => 1 => 3 => 1 => 2 => 1 
+ 
+ => Total plates
+ 
+ steps followed
+ hint: odd plate(1st): 1
+ 
+ ***************************************************************************************************************************************
  Note: concluded by observing
     => 1st step alway by plate 1 from 1st box to 2nd box, 
        last step also always by plate 1 i.e from 2nd box to 3rd box. 
     => Total number of steps = 15 in case of 4 plates which may mean = ((2^4)-1) => ((2^n)-1), where n = number of plates
+    => Number of steps followed by each plate depends on its position and total number of plates
+            => 2^(n-p) // n = total number of plates, p = position of plate
+         
+  Example using total 4 plates
+       1st plate total steps = 2^(4-1) = 8 steps  // n = 4, Position of plate = 1st
+       2nd plate total steps = 2^(4-2) = 4 steps
+       3rd plate total steps = 2^(4-3) = 2 steps
+       4th plate total steps = 2^(4-4) = 1 steps
+   
+   => Occuring frequency of each plate = 2^(p-1)//P is the position of plate
+      
+     e when total number of plates = 4
+     1st plate occurs after how many steps = 2^(1-1) = 2^0 = 1 // after every 1 step 1st plate make a move
+     2nd plate occurs or make a move after steps = (2^2)-1 = 3 // after evry 3 steps 2nd plate makes a move
+    
+        
+    
+    
