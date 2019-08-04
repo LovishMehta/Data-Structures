@@ -160,7 +160,57 @@ III: For 3 plates
 	      // By the end of this 2 plates get tranferred to C Box.
 	    
  ***************************************************************************************************************************************  
-   
+          Recursion Problem 2: Factorial
+****************************************************************************************************************************************
+Factorial = n*(n-1)*(n-2)*(n-3)*....1
+
+int factorial(int n)
+{
+  int product;
+  if(n==1)
+  { return 1;}
+  product = n*factorial(n-1)
+  return product;
+}
+int main()
+{
+printf("%d ",factorial(3);
+return 0;
+}
+
+Explanation
+factorial of 3
+=> product = 3*factorial(2); => 3*2 = 6 => return 6;
+=> product = 2*factorial(1); => 2*1 = 2 => return 2;
+
+********************************************************************************************************************************************
+      Recursion Problem 3: Fibonacci
+********************************************************************************************************************************************
+  *Fibonacci series : 1,1,2,3,5,8,13,21,34,55,......
+  *Fibonacci = (n-1)+(n-2) // sum of last 2 elements of series
+  *Fibonacci(6), means return 6th element of fibonacci series i.e. 8
+  
+  int Fibonacci(int n)
+  {
+   if(n==1||n==2)
+     {return 0;}
+   int sum;
+   sum = Fibonacci(n-1)+Fibonacci(n-2);
+   return sum;
+  }
+  int main()
+  {
+   Fibonacci(4);
+   return 0;
+  }
+  
+  *Explanation
+  Fibonacci(4) = Fibonacci(3)+Fibonacci(2);  => 2+1 = return 3;
+                      +||
+		 Fibonacci(2) +Fibonacci(1) = 1 + 1 = return 2;
+  *****************************************************************************************************************************************
+  
+  
    
    
 
