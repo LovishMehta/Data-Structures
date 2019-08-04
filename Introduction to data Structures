@@ -126,6 +126,39 @@ TOH:  Tower of Hanoi
    } 
    
    Explanation
+I:  For 1 plate
+    => suppose we have only 1 plate, then solution is direct: Transfer plate 1 from Box A to Box C
+
+II: For 2 plates
+   => Now suppose when we have 2 plates, then solution will be as follows
+       1. Firstly transfer (n-1) plates (i.e plate 1) from Beginning box  to auxillary box (i.e. from box A to box B).
+       2. Then tranfer the n plate (i.e. plate 2) from Beginning box to destination box (i.e. from Box A to Box c) // use of explanation 1
+       3. Then transfer the n-1 plate (i.e. plate 1) Auxillary box to destination box (i.e. from Box B to Box C). 
+       
+III: For 3 plates
+  => Now suppose when we have 3 plates, then the solution will be as follows
+       1. Firstly transfer (n-1) plate (i.e. plate 2) to auxillary box (i.e. from  Box A to Box B)
+             => Now to do that we will have to use 3 step explanation of transfering 2 plates from Beginning to Destination as above
+.......................................................................................................................................     
+	      Here "Beginnig box -> A", "Auxillary Box -> C", "Destination Box -> B"  // => that's why -> TOH(n-1,BEG,DES,AUX);
+.....................................................................................................................................	      
+	       i)  Firstly transfer (n-1) plates (i.e plate 1) from Beginning box to auxillary box (i.e. from box A to box C).                                                
+              ii) Then tranfer the n plate (i.e. plate 2) from Beginning box to destination box (i.e. from Box A to Box B)
+             iii) Then transfer the n-1 plate (i.e. plate 1)  Auxillary box to destination box (i.e. from Box C to Box B). 
+	      // By the end of this 2 plates get tranferred to B Box.
+	      
+      2. Then we tranfer the nth plate(i.e. 3rd plate) from to Destination Box (i.e from Box A to Box C)
+      
+      3. Now we have to tranfer the (n-1) plates (i.e plate 2 & plate 1) to destination box(i.e. Box B to Box C)  
+            =>Now  Again we have to use the explanation of transferring the 2 plates 
+......................................................................................................................................	    
+	    Here "Beginning Box -> B", "Auxillary Box -> A", "Destination Box -> C" // => that's why -> TOH(n-1,AUX,BEG,DES);
+......................................................................................................................................
+             i) Firstly transfer (n-1) plates (i.e plate 1)from Beginning box to auxillary box (i.e. from box B to box A).                                                
+            ii) Then tranfer the n plate (i.e. plate 2)from beginning box to destination box (i.e. from Box B to Box C)
+           iii) Then transfer the n-1 plate (i.e. plate 1) Auxillary box to destination box (i.e. from Box A to Box B). 
+	      // By the end of this 2 plates get tranferred to C Box.
+	    
  ***************************************************************************************************************************************  
    
    
