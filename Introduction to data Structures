@@ -104,13 +104,33 @@ BACKTRACKING : It just means trying all possibilities, as sometimes its the best
        2nd plate total steps = 2^(4-2) = 4 steps
        3rd plate total steps = 2^(4-3) = 2 steps
        4th plate total steps = 2^(4-4) = 1 steps
+***************************************************************************************************************************************
+Actual solution of Tower of Hanoi
+***********************************
+TOH:  Tower of Hanoi
    
-   => Occuring frequency of each plate = 2^(p-1)//P is the position of plate
-      
-     e when total number of plates = 4
-     1st plate occurs after how many steps = 2^(1-1) = 2^0 = 1 // after every 1 step 1st plate make a move
-     2nd plate occurs or make a move after steps = (2^2)-1 = 3 // after evry 3 steps 2nd plate makes a move
-    
-        
+   // Solution using recursion
+   TOH(int n,char BEG,char AUX, char END)     // n = number of plates
+   {
+    if(n>=1)
+    {
+     TOH(n-1,BEG,AUX,END);
+     printf("%c to %c",BEG,END);
+     TOH(n-1,AUX,BEG,END);
+    }
+   } 
+   int main()
+{
+	TOH(4,'A','B','C');
+	return 0;
+   } 
+   
+   Explanation
+ ***************************************************************************************************************************************  
+   
+   
+   
+
+ 
     
     
