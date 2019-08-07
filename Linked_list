@@ -45,17 +45,19 @@ struct node *start = NULL; // initially we store NULL in start pointer indicatin
 
 *Traversing (means visiting each node)
 
-**Accesing Nodes(i.e. structure)
+**************************************************
+         Accesing Nodes(i.e. structure)
+**************************************************         
 1. Structure members are accessed using dot (.) operator.
-  Here it is same as accessing a variable, we just have to put dot. See below example to understand. 
   
-  Normally we declave variable as: 
+ -> Here it is same as accessing a variable, we just have to put dot. See below example to understand. 
+ 
+ Normally we declave variable as: 
         int p;
         p = 10; 
         printf("%d",p) // we simply use varible name to access it
         
-  Now in case of Node i.e. when we want to access members of a node( i.e. strucuture)
-  we use dot(.) operator.
+ Now in case of Node i.e. when we want to access members of a node( i.e. strucuture) we use dot(.) operator.
      struct node
      {
        int p
