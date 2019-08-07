@@ -1,0 +1,97 @@
+Linked List : It is a data structure used for storing collection of data. 
+(Linear data, i.e. like list of marks of student)
+-> Arrays, Linked List are linear data,because the next element comes one after the other.
+-> Trees, graphs etc are Non-Linear data, because the one element is connected many element.
+
+Properties of linked list
+1) Successive elements are connected by pointers.
+2) Last element pointer points to nothing, so last element points to NULL.
+3) Linked list can grow or shrink during execution of a program
+4) It can be made just as long as required.
+5) It does not waste memory.
+
+Three main linked list operations
+1)Insertion
+2)Deletion
+3)Transversing
+
+Why inked list?
+Array is used when we know the size of storage before compiling (array accessed fast because accesed using index valies a[2])
+whereas in linked list we can set the size even during the run time.(comparitively accesed slowly because uses pointer for purpose acces)
+
+Node: not a type of primitive data type(i.e. not int,char,float,double,etc). It is a Non Primitive data type.
+When we talk about storing list of information each information set is a node which also plays a role of connectionn point in the list
+(vo station jha data rakha hua hai)
+
+*Defining "Node"
+struct node
+{
+int info;
+struct node *link; // stores addres of data type 'struct node' (e.g. int *p stores address of integer similarly it stores address of node)
+}                  (pointer jis type ka hota hai usi type ka address store krta hai)
+
+*Defining Start Pointer
+struct node *start = NULL; // initially we store NULL in start pointer indicating it is pointing to nothing which means "List is EMPTY". 
+
+*Insertion
+-At the end
+-At the beginning
+-After a node
+
+*Deletion
+-Last node
+-First node
+-Particular node
+
+*Traversing (means visiting each node)
+
+**Accesing Nodes(i.e. structure)
+1. Structure members are accessed using dot (.) operator.
+  Here it is same as accessing a variable, we just have to put dot. See below example to understand. 
+  
+  Normally we declave variable as: 
+        int p;
+        p = 10; 
+        printf("%d",p) // we simply use varible name to access it
+        
+  Now in case of Node i.e. when we want to access members of a node( i.e. strucuture)
+  we use dot(.) operator.
+     struct node
+     {
+       int p
+     }
+     int main()
+     {
+       struct p ptr;
+       p.ptr = 10;        // Assigining value to node member
+       printf("%d",p.ptr); // Acessing Node(structure) member.
+       
+2.Like primitive types, we can have pointer to a structure. If we have a pointer to structure,
+  members are accessed using arrow ( -> ) operator. 
+  
+ ** Now let us understand it by comparing. Compare each and every point and you will understand it easily/
+  
+  Normally we declare variable as
+    int *p;            // 1)declaration of pointer of primitive data type(int).
+    int temp;          // 2)Creating a variable of primitive data type (i.e. int)
+    temp = 10;         // 3)Storing value in variable of primitive data type
+    p = &temp;         // 4)Storing address of variable in pointer ( both varible and pointer are of primitive data type)
+    printf("%d",*p); //   5)To access values pointed by the pointer we use "Derefrencing" operator(*) 
+    
+  NOW in Node (structure) we access pointer as follows
+   struct node
+   {
+    int x;           //
+    }
+    int main()
+    {
+     struct node *p;       // 1)Declaration of pointer of Non primitive data type(struct node is the data type)
+     struct node temp;     // 2)Creating a variable of Non primitive data tyoe(i.e. struct node)
+     temp.x = 10;          // 3)Storing value in varibale of Non primtive data type
+     p = &temp;            // 4)String address of variable in pointer( both variabe and the pointer are of Non primitve type)
+     printf("%d",p->temp); // 5)To access values pointed by pointer of Non primitive data type we use (->) operator, kind of 
+                               Derefrencing operator in this case.
+     }
+    
+
+
