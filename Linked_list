@@ -94,6 +94,303 @@ struct node *start = NULL; // initially we store NULL in start pointer indicatin
      printf("%d",p->temp); // 5)To access values pointed by pointer of Non primitive data type we use (->) operator, kind of 
                                Derefrencing operator in this case.
      }
-    
+***********************************************************************************************************************************
+Insetion in linked list
+Deletion in linked list
+**********************************************************************************************************************************
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<string.h>
+int count;
+struct node
+{
+	int info;
+	struct node *link;
+};
 
+struct node *start = NULL;
+
+struct node *create_node()
+{
+	struct node *n;
+	n = (struct node*)malloc(sizeof(struct node));
+	return n;
+}
+
+void insert_node()
+{
+	struct node *temp,*last,*next;
+	temp = create_node();
+	printf("Enter data : \n");
+	scanf("%d",&temp->info);
+
+	temp->link = NULL;
+	if(start==NULL)
+	{
+		start = temp;
+	}
+	else
+	{
+		printf("Enter where you want to place the element\n");
+	    int place;
+	    scanf("%d",&place);
+		last = start;  
+	    int i;
+	if(place == 1)
+	{   temp->link = start;
+		start = temp;
+		
+		} 
+		else
+		{
+		   
+	for(i=2;i<place;i++)
+	{
+		last = last->link;
+	}
+	 temp->link = last->link;
+	 
+	 last->link=temp;
+}
+	 
+}
+}
+
+void view_list()
+{
+	int count=0;
+	struct node *t;
+	t = start;
+	if(start==NULL)
+	{
+		printf("List is Empty \n");
+	}
+	else
+	{
+		t = start;
+	while(t!=NULL)                      //here I have to print until the 't' doesnot reach the end i.e. NULL, when t==NUL it will mean it points nowhere
+	{
+		printf("%d ",t->info);
+		t = t->link;
+		
+	}
+	printf("\n");
+}
+}
+
+int list_count()
+{
+	count=0;
+	struct node *t;
+	t = start;
+	if(start==NULL)
+	{
+		printf("List is Empty \n");
+	}
+	else
+	{
+		t = start;
+	while(t!=NULL)                      //here I have to print until the 't' doesnot reach the end i.e. NULL, when t==NUL it will mean it points nowhere
+	{
+		t = t->link;
+		count++;
+	}
+	printf("%d\n",count);
+}
+}
+
+void delet()
+{
+	struct node *letgo;
+	letgo = start;
+	if(start==NULL)
+	printf("List is already empty : ) \n");
+	
+	else
+	{
+		start = start->link;
+		free(letgo);
+	}
+}
+int menu()
+{
+	int sel;
+	printf("Press 1 to insert element at the end\n");
+	printf("Press 2 to view list \n");
+	printf("Press 3 to know the lenght of the list\n");
+	printf("Press 4 to delete the element\n");
+	scanf("%d",&sel);
+	return sel;
+}
+int main()
+{
+	while(1)
+	{
+switch(menu())
+{
+	case 1:insert_node();
+	       break;
+	case 2:view_list();
+	       break;
+	case 3:list_count();
+	       printf("The count is %d \n",count);
+	       break; 
+	case 4:delet();
+	       break;       
+				          
+    default: printf("No such option \n");	
+	       break;          
+} 
+    }
+return 0;
+
+}
+****************************************************END*****************************************************************************
+
+
+    
+************************************************************************************************************************************
+Reversal of Linked List
+***********************************************************************************************************************************
+
+#include<stdio.h>
+#include<stdlib.h>
+
+
+struct node
+{
+	int info;
+	struct node *list;
+};
+
+struct node *start;
+
+struct node* create_node()
+{
+	struct node *n;
+	n = (struct node*)malloc(sizeof(struct node));
+	return n;
+};
+
+void insert_node()
+{
+	struct node *temp1,*temp2;
+	temp1 = create_node();
+	printf("Enter data : \n");
+	scanf("%d",&temp1->info);
+	temp1->list = NULL;
+	
+	if(start==NULL)
+	{
+		start = temp1;
+	}
+	else
+	{
+		temp2 = start;
+		while(temp2->list!=NULL)
+		{
+			temp2 = temp2->list;
+		}
+		temp2->list = temp1;
+		
+	}
+}
+
+void view_list()
+{
+	struct node *temp1;
+	temp1 = start;
+	while(temp1!=NULL)
+	{
+		printf("%d ",temp1->info);
+		temp1 = temp1->list;
+	}
+	printf("\n\n");
+}
+
+int menu()
+{
+	printf("Press 1 to insert element in the list\n");
+	printf("Press 2 to reverse the list\n");
+	printf("Enter 3 to view the list\n");
+	int n;
+	scanf("%d",&n);
+	return n;
+}
+/*                            Logic for Reverse the list 
+Firstly I did two things using while loop, "while(temp->list!=NULL)" (temp = start)
+1. calculated total number of elements in the list (count came 1 less than actual elements i.e. if there a 3 elements in the list 
+the count came =  2)
+2. Along with that I stored the address of last node into "start_new".
+
+After that I made a while loop => while(count--), I used this while loop to store the address of n-1 element in the start_new.
+This was possible with the help of a "for loop" inside it. 
+1. Firstly stored the address of n-1 element in the nth element
+2. then stored address of n-2 element in the (n-1)th element
+3. then stored address of n-3 element in the (n-2)th element
+4. so on until count value doesnot became =0, at that point n also becoemes = 0;
+
+Note: when count =1, this means now the temp2 is pointing to the last node of the list( which actually first in original manner), so I made the
+      its list element = NULL, so that it points nowhere as its the end of list 
+
+
+*/
+
+void reverse_node()
+{
+	int count=0;
+ struct node *start_new,*temp,*temp2;
+ temp = start;
+ if(start==NULL)
+ {
+ 	printf("List is empty\n");
+ }
+ else
+ {
+ 	 while(temp->list !=NULL)
+  {
+  	temp = temp->list;
+  	count+=1;               // storing the number of nodes in the list in the count variable (count is 1 less than actual nodes)
+	  }	
+	  start_new = temp;
+	  int i;
+	  temp2 = start_new;   // storing the address of first node of reverse list(which is actually the last node of original list) in temp2 
+	  
+ 	while(count!=0)
+ 	{
+ 		temp = start;
+ 		if(count==1)         // when count == 1 , this means now the temp will point to the last node of revers list(i.e. first node of original list),
+ 		temp->list = NULL;   // so we make last node's "list" element to point to NULL (temp->list = NULL)
+	 for(i=0;i<count-1;i++)
+	 {
+	 	temp = temp->list;   // using for loop "temp" points to the (count-1)th  node
+	 }
+       temp2->list = temp;  // storing the addresses from n-1 node to 1st node in the "list" element of nodes one by one using temp
+       temp2 =  temp2->list;
+       count--;
+    }
+    start = start_new;    // store the address of first node of new list i.e. of reverse list in the original start pointer.
+}
+}
+
+int main()
+{
+	while(1)
+{
+	switch(menu())
+	{
+		case 1: insert_node();
+		        break;
+	    case 2: reverse_node();
+	            break;
+	    case 3: view_list();
+		        break;
+		default: printf("No such option exist\n");
+		        break;		        
+	}
+}
+return 0;
+}
+************************************************************************************************************************************
 
