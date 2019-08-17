@@ -1,0 +1,49 @@
+Bubble Sort: Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are
+             in wrong order.
+             
+             The below code is the modified version of Bubble sort. Just have added an if Statement. If all the elements are already 
+             arranged (i.e. if no swapping took place which means elements were already arranged) then the for loop will break.
+             In best case the Time Complexity will be: O(n).
+
+#include <stdio.h>
+#include <conio.h>
+
+void swap(int *a,int *b)
+{
+	*a = *a^*b;
+	*b = *a^*b;
+	*a = *a^*b;
+}
+
+int main()
+{
+	int i,j,k;
+	int arr[] = {11,22,25,34,43,48,56,67,77};
+	int N=9;
+	int count=0,round=1;
+	for(i=0;i<N;i++)
+	{
+		count =0;
+		for(j=0;j<N-i-1;j++)
+		{
+			if(arr[j]>arr[j+1])
+			{swap(arr+j,arr+j+1);
+//				arr[j] = arr[j]^arr[j+1];           //swapping using XOR bitwise operator
+//				arr[j+1] = arr[j]^arr[j+1];
+//				arr[j] = arr[j]^arr[j+1];
+           count++;
+           round++;
+			}
+
+		}
+			if(count ==0)   // if count is equal to zero it means that all the elements were arranged.
+			break;
+	//printf("\n");
+	}
+	printf("%d\n",round);
+	for(k =0;k<=8;k++)
+	{
+		printf("%d ",arr[k]);
+	}
+	return 0;
+}
