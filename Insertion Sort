@@ -1,0 +1,44 @@
+Insertion Sort: In this sort we firstly arrange the starting elements anf then proceed further.
+
+E.g.  66 22 13 89 10
+
+So firstly arrange first- two elements
+=> 22 66 13 89 10
+
+Now arrange first thre elements
+=> 22 13 66 89 10
+=> 13 22 66 89 10
+
+Now arrange first four elements
+i.e. firstly compare element 66 and 89, as 89 is greater than 66 so no need to swap and no need to check for elements before 66 
+     because elements are already arranged and if 89 is greater than 66 than it means it greater then all the elements before 66.
+=> 13 22 66 89 10
+
+Now arrange first five elements
+=> 13 22 66 10 89
+=> 13 22 10 66 89
+=> 13 10 22 66 89
+=> 10 13 22 66 89
+
+So in this Sort also we use two for loops,so
+Time Complexity: O(n^2)
+
+How Insertion Sort is better than Bubble Sort and Selection Sort?
+Ans: Time Complexity of Insertion Sort in its best case is : O(n)
+
+Code Logic
+
+int main()
+{
+  int i,j;
+  arr[]= {66,22,13,89,10};
+  int N = 5;
+  for(i=1;i<N;i++)
+  {
+    for(j=i-1;j>=0&&arr[j]>arr[j+1];j--)  // loop runs for j=i-1(i.e. if i=5,loop will run 4 times) and its purpose is to arrange 
+    {                                     // elements before i elements
+       swap(arr[j],arr[j+1]
+    }
+  }
+  return 0;
+}  
