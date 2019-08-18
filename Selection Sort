@@ -1,0 +1,39 @@
+Selection Sort actually uses the concept which you used to use for Bubble sort.
+i.e. Compare the first element with the next elements and swap it with element which is smallest in the array.
+By doing this the smallest element comes to the first place. Now take j=1+i element and compare with other elements.
+So in this way the smallest elements will keep on coming forward and the array will be sorted.
+
+Time Complexity = O(n^2)
+
+Code :
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int i,j,min_index,min_val,k;
+	int arr[] = {22,56,11,82,28,9,90,55};
+	
+	for(i=0;i<8-1;i++)
+	{
+		min_val = arr[i];
+		for(j=1+i;j<8;j++)
+		{
+			  if(min_val>arr[j])
+			  {
+				
+			  	min_val  = arr[j];
+				  min_index = j;
+			  }
+		}
+		   	    arr[i] = arr[min_index]^arr[i];
+		   	    arr[min_index] = arr[i]^arr[min_index];
+		   	    arr[i] = arr[i]^arr[min_index];
+	}
+	
+	for(k=0;k<8;k++)
+	{
+		printf("%d ",arr[k]);
+	}
+	return 0;
+}
