@@ -5,6 +5,68 @@ So in this way the smallest elements will keep on coming forward and the array w
 
 Time Complexity = O(n^2)
 
+***********************
+Modified code:
+*****************
+#include<stdio.h>
+
+void swap(int *a,int *b)
+{
+if(*a!=*b)  // because if *a = *b then *a^*b will be equal to 0 
+{
+  *a = *a^*b;
+  *b = *a^*b;
+  *a = *a^*b;	
+}
+}
+
+int insert_sort(int *arr,int n)
+{
+	int i,j;
+	int num,count=0;
+	int min_val;
+		for(i=0;i<n-1;i++)
+	{
+			num=i;
+	   for(j=1+i;j<n;j++)
+	    {
+		   if(arr[num]>arr[j])
+		    num = j;
+		    
+			count++;
+        }
+  
+    swap(&arr[num],&arr[i]);
+	}
+	return count;
+}
+
+int main()
+{
+	int i,n;
+	int count;
+	
+	printf("Enter size of array\n");
+	scanf("%d",&n);
+	
+	int arr[n];
+	for(i=0;i<n;i++)
+	scanf("%d",arr+i);
+	
+	printf("Entered Array is\n");
+	for(i=0;i<n;i++)
+	printf("%d ",arr[i]);
+	printf("\n");
+
+	count = insert_sort(arr,n);
+	
+	printf("Number of loops ran: %d\n",count);
+	
+	printf("Sorted array is\n");
+	for(i=0;i<n;i++)
+	printf("%d ",arr[i]);
+}
+************************************************************************************************************************************
 Code :
 #include<stdio.h>
 #include<conio.h>
