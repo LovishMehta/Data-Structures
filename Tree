@@ -1,0 +1,70 @@
+A tree is a hierachial data strucuture
+
+=>In Arrays,Stack's,Queue's elements are sequentially connected to each other that's why called "Linear" data strucuture
+=>Trees are "Non Linear" data strucutre as its elements are not sequentially connected to each other.
+
+A tree is defined as finite set of one or more data items(nodes) such that (nodes are linked lists)
+1. There is a special node called the root of the tree.(rsabse upar vala node is called root node).
+2. The remaining nodes are partitioned int n>=0 disjoint subsets, each of which is itself a tree 
+   and they are called subtrees.
+
+************************
+Common terms in Trees
+************************
+DEGREE: The number of sub-trees of a node are called its degree. (jitne subtrees honge utni degree hogi)
+
+LEAF: A node with the degree zero is called leaf.
+
+Terminal Nodes: The leaf nodes are also called leaf nodes.
+
+DEGREE OF TREE: The degree of tree is maximum degree of the nodes in the tree.
+
+ANCESTORS(purvaj): The anscestors of a tree are all the nodes along the path from the roots to that node. (kisi particular node k upar
+           jitni bhi nodes hai unhe ancestors kehte hai)
+           
+DESCENDANTS(vanshash): The descendants of a node are all the nodes along the path from the node to the teminal node.( kisi node se neeche
+                       jitne bhi node hai terminal node tak unhe descendants kehte hai).
+                                            
+LEVEL NUMBER: Each node is assigned a level number. The root node of the tree is assigned a level number '0'.
+              Every other node assign a level number which one is 1 more than the level number of its parent.
+              
+GENERATION: Nodes with same level number are said to belong to same generation.
+
+EDGE: A line drawn from a node N of T to a sucessor is called edge.
+
+PATH: Sequence of consecutive edges is called path.( path ek node se kisi bhi node tak ho sakta hai (edge bole to line))
+     (path can be from node N1 to N5)
+Branch: PAth ending in a leaf(or Terminal Node) is called a branch. (vo path jo terminal node p jake khatam ho use brach kete hai)
+
+HEIGHT/DEPTH: The height or depth of a tree is the maximum number of nodes in a branch.
+
+*************************************************************************************************************************************
+Binary Tree
+*************************************************************************************************************************************
+A binary tree T is defined as a finite set of elements,called nodes such that
+1. T is empty(called the null tree or empty tree),or
+2. T contains distinguished nodes R,called the root of T,and the remaining nodes of T form an ordered pair of disjoint 
+   binary trees T1 and T2.
+   (kehne ka matlab ya to tree empty ho aur agar uske subtrees ho bhi to maximum 2 subtrees hi ho usse zyada na ho further 
+    subtrees bhi yhi rule follow kare. 2 subtrees se kam ho sakte hai par usse zyada ni)
+    
+*Complete Binary Tree: It is defined as a binary tree whose non leaf nodes have non empty left and right sub tree and all leaves 
+                       are at same level.
+                       (It means as we know binary tree k maximum 2 hi nodes(child) ho sakte hai to complete binary tree vhi hai
+                       jiski har node har level p filled ho. Koi bhi khali ni honi chahiye)
+                       (defination in hindi, aisa tree jiski non leaf nodes (non leaf nodes matlab jinki degree 0 se zyada ho k
+                        jo right left subtrees hai vo non empty ho aur saare leaves same level p ho.)
+                        (leaves matlab vo nodes jinki degree 0 ho, degree 0 bole to having no furhter subtrees)
+                        
+* Almost Complete Binary Tree: Almost complete binary tree is defined as a binary tree whose non leaf nodes have non empty left and 
+                               right sub-tree and all leaves are either on at the last level or second last level.
+                               (itna hi difference hai ki sare leaves ek hi level p na hokar agar second lasr or last level par ho)
+                               
+* Strict Binary Tree: A binary tree is called a strict binary tree if every non leaf node in the binary tree has non empty left and
+                      right subtree.
+                      It means each node will have either 0 or 2 children.
+                      (aisa koi non leaf node ni hona chahiye jiske e child ho ya to 0 child ho ya 2 child ho)
+                      
+* Extended Binary tree: An extended binary tree is a tree that has been transformed into a full binary tree.This transformation is
+                        achieved by inserting special "external" nodes such that every "internal" node has exactly two children.
+                         
