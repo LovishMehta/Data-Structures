@@ -1,0 +1,102 @@
+Merge Sort
+In merge sort we firstly divide an n element array in n arrays with single element in it.
+After that we compare the elements of the array,and merge them in sorted manner. Such that when all arrays are merged
+the array obtained is sorted array.
+
+Time complexity
+Best case: O(nlog(n));
+Average case: O(nlog(n));
+Best case: O(nlog(n));
+
+Space Complexity
+O(n)
+******************************************************************************************************************************************
+code with recurssion
+******************************************************************************************************************************************
+#include <stdio.h>
+#include <stdlib.h>
+
+void merge(int *arr,int l,int m,int r)
+{
+	printf("Entered Merge\n");
+	int len1,len2;
+	len1 = m-l+1;
+	len2 = r-m;
+	
+	int L[len1];
+	int R[len2];
+	
+	int i,j,k;
+	for(i=0;i<len1;i++)
+	 L[i] = arr[l+i];
+	
+	for(j=0;j<len2;j++)
+	R[j]  = arr[m+1+j];
+	
+	i=0;
+	j=0;
+	k=l;
+	
+	while(i<len1 && j<len2)
+	{
+	  if(L[i]<=R[j])
+	  {
+	  		arr[k] = L[i];
+	  		i++;
+	  		k++;
+		  }
+	  else
+	  {
+	  	arr[k] = R[j];
+	  	k++;
+	  	j++;
+				}	  	
+	}
+	while(i<len1)
+	{
+		arr[k] = L[i];
+		k++;
+		i++;
+		
+	}
+	while(j<len2)
+	{
+		arr[k] = R[j];
+		k++;
+		j++;
+		
+	}
+}
+
+void mergeSort(int *arr,int l,int r)
+{
+	if(l<r)
+	{
+		printf("Entered MergeSort\n");
+		int m;
+		m = (r+l)/2;
+
+		mergeSort(arr,l,m);
+		mergeSort(arr,m+1,r);
+		merge(arr,l,m,r);	
+}
+}
+
+int main()
+{
+	int n,i;
+	scanf("%d",&n);
+	int arr[n];
+	
+	for(i=0;i<n;i++)
+	scanf("%d",arr+i);
+	
+	printf("Given array is\n");
+		for(i=0;i<n;i++)
+	printf("%d ",arr[i]);
+	mergeSort(arr,0,n-1);
+	
+	for(i=0;i<n;i++)
+	printf("%d ",arr[i]);
+}
+***************************************************************************************************************************************
