@@ -67,4 +67,151 @@ A binary tree T is defined as a finite set of elements,called nodes such that
                       
 * Extended Binary tree: An extended binary tree is a tree that has been transformed into a full binary tree.This transformation is
                         achieved by inserting special "external" nodes such that every "internal" node has exactly two children.
+                        
+ ****************************************
+ Pre-Order Traversal of binary Tree
+ ****************************************
+ 1. We firstly process the root R of tree.
+ 2. Then traverse left subtree of R. 
+ 3. Then traverse right subtree of R.
+ 
+***************************************************************************************** 
+Code: using Recurssion (Not yet checked the binary tree representation from Geeksforgeeks)
+******************************************************************************************
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+	int info;
+	struct node *left;
+	struct node *right;
+};
+
+struct node* create_node()
+{
+	struct node *ptr;
+	ptr = (struct node*)malloc(sizeof(struct node));
+	return ptr;
+}
+
+void preorder_traversal(struct node *root)            // preorder function using recursion
+{                                                     // 10 20 40 50 30 60 70
+	if(root)
+	{
+		printf("value :%d\n",root->info);
+		preorder_traversal(root->left);
+		preorder_traversal(root->right);
+	}
+}
+
+int main()
+{
+	struct node *root,*n1,*n2,*n3,*n4,*n5,*n6;
+	
+root = create_node();
+
+n1 = create_node();
+n2 =  create_node();
+
+n3 = create_node();
+n4 = create_node();
+
+n5 =  create_node();
+n6 = create_node();
+
+	root->left = n1;
+	root->right = n2;
+	
+	root->info=10;
+	
+	n1->info=20;
+	n1->left=n3;
+	n1->right=n4;
+	
+	n3->info = 40;
+	n4->info = 50;
+	
+	n3->left=0;
+	n3->right=0;
+	
+	n4->left=0;
+	n4->right=0;
+	
+	n2->info=30;
+	n2->left=n5;
+	n2->right=n6;
+	
+	n5->info=60;
+	n6->info=70;
+	
+	n5->left=0;
+	n5->right=0;
+	
+	n6->left=0;
+	n6->right=0;
+	
+//	printf("%d\n",root->left->info);
+//	printf("%d\n",root->right->info);
+preorder_traversal(root);
+}
+
+Output:
+10 20 40 50 30 60 70
+
+
+*****************************************************************************************************************
+In-order Traversal of binary Tree
+****************************************************************************************************************
+1. Firstly Traverse the left subtree of R in inorder.
+2. Process the root R.
+3. Traverse the right subtree of R in inorder.
+
+****************
+code: Recursive
+****************
+The code is same as above just change the postorder_traversal function with inorder_traversal
+
+void inorder_traversal(struct node *root)
+{
+	if(root)
+	{
+		inorder_traversal(root->left);  // 40 20 50 10 60 30 70 
+		printf("value :%d\n",root->info);
+		inorder_traversal(root->right);
+	}
+}
+
+OUTPUT: 40 20 50 10 60 30 70
+
+**********************************************************************************************************************
+Post-order Traversal Tree
+**********************************************************************************************************************
+1. Firstly we traverse the left subtree of R in postorder
+2. Then we traverse the right subtree of R in postorder
+3. process the root R.
+
+**************************
+Code using Recursion
+*************************
+Same as above just replace the function preorder with postorder
+
+void postorder_traversal(struct node *root)
+{
+	if(root)
+	{
+		postorder_traversal(root->left);  // 40 50 20 60 70 30 10 
+		postorder_traversal(root->right);
+      printf("value :%d\n",root->info);
+	}
+}
+
+OUTPUT: 40 50 20 60 70 30 10
+
+**************************************************************************************************************************************
+Level order Traversal
+**************************************************************************************************************************************
+
+                        
+                        
                          
