@@ -1,0 +1,8 @@
+Abstract Data Type (ADT) describes storage structure and set of operations.
+
+Abstract data type ka matlab hai data store karoge that data structure (i.e array, dynamic array, Linked list etc.) aur us data 
+par perform hone vale operations jaise ki  insertion, deletion etc.  milkar kehlate hai "Abstract Data Type".
+
+Link : https://www.geeksforgeeks.org/abstract-data-types/
+
+Stacks, Queues are some Abstract Data Types.
