@@ -1,0 +1,10 @@
+Time complexity when we use "Hash table" for searching is : O(1)
+
+*HASH TABBLE: Mostly is an array to store dataset. It is the data structure.
+
+*HASH FUNCTION: A hash function is any function that can be used to map dataset of arbitrary size to dataset of fixed size
+                which falls into hash table
+                The values returned by a hash function are called hash values, hash codes,hash sums, or simply hashes.
+                
+*HASHING : In hashing, large keys are converted into small ones by using hash functions and then the values are stored in 
+           data structure called hash tables
