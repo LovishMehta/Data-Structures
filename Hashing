@@ -1,6 +1,9 @@
 Time complexity when we use "Hash table" for searching is : O(1)
 
 *HASH TABBLE: Mostly is an array to store dataset. It is the data structure.
+                          or
+              Hash table is a Data structure where the data elements are stored(inserted), searched, deleted based on the keys
+              generated for each element, which is obtained from hashing function.
 
 *HASH FUNCTION: A hash function is any function that can be used to map dataset of arbitrary size to dataset of fixed size
                 which falls into hash table
@@ -8,3 +11,32 @@ Time complexity when we use "Hash table" for searching is : O(1)
                 
 *HASHING : In hashing, large keys are converted into small ones by using hash functions and then the values are stored in 
            data structure called hash tables
+
+COLLISION : A situation when the resultant hashes for two or more data elements in the data set, maps to the same location
+            in the hash table, is called a hash collision.
+            In such situation two or more data elements would qualify to be stored/mapped to the same location in hash table.
+            
+    TWO TYPEs
+    1. Open Hashing: if collisions are stored outside the table then it's called open hashing.
+    2. Closed Hashing: if collisons are stored at some other slot(index) in the hash table, then it's called closed hashing.
+  
+ => Open Hashing: The simplest form of open hashing defines each slot in the hash table to be the head of a linked list.
+                  
+                  index 1 | |data | head| -> |data | next| -> |data | next|
+                          |
+                  index 2 | |data | head| -> |data | next| -> |data | next|
+                          |
+                  index 3 | |data | head| -> |data | next| -> |data | next|
+                          |
+                  index 4 | |data | head| -> |data | next| -> |data | next|
+                  
+ => Closed hashing: Three types
+      i) Linear probing (probing means pata karna)
+         In linear probing if an element is present at particular index in hash table then we keep on incrementing the the index and 
+         store the data wherever the slot is free.
+     ii) Quadratic probing: the increment is quadratic i.e. hash+2, hash+4, hash+8, so on...
+    iii) Double hashing : The increment in hash table is double to the predent index, say index is 5 then -> hash+5, hash+10, hash+15
+                          i.e. hash+(i*hash2x)
+    Refer Link: https://www.geeksforgeeks.org/hashing-set-3-open-addressing/
+                  
+                  
