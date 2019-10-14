@@ -1,1 +1,64 @@
 NOTE: Inorder Traversal of binary Search gives data in "Sorted Order".
+
+
+
+
+// Firstly saving the data in an array using inorder Traversal
+// Then sorting the data
+// Then storing the sorted data in the array
+
+int i=0;
+void inOrder(Node *root,vector<int> &A)
+{
+    if(root==NULL)
+    return;
+    
+    inOrder(root->left,A);
+    A.push_back(root->data);
+    inOrder(root->right,A);
+    
+}
+
+void inorderTree(Node *root,vector<int> &A)
+{
+    if(A.at(i) == -1)
+    return;
+    
+    if(root==NULL)
+    return;
+    
+    inorderTree(root->left,A);
+    root->data = A.at(i);
+    i++;
+    inorderTree(root->right,A);
+}
+
+struct Node *correctBST(struct Node* root )
+{
+    // add code here.
+    
+    vector<int> A;
+    inOrder(root,A);
+  //  
+    
+    for(int j=0;j<A.size()-1;j++)
+    {
+        for(int k=0;k<A.size()-1-j;k++)
+        {
+            if(A.at(k)>A.at(k+1))
+            {
+                int temp = A.at(k);
+                A.at(k) = A.at(k+1);
+                A.at(k+1) = temp;
+            }
+        }
+    }
+    i=0;
+    A.push_back(-1);
+    inorderTree(root,A);
+   
+//   for(int i =0;i<A.size();i++)
+//   printf("%d ",A.at(i));
+    
+    return root;
+}
