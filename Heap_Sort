@@ -3,8 +3,6 @@ It is similar to selection sort where we first find the maximum element and plac
 maximum element at the end. We repeat the same process for remaining element.
 
 
-Time complexity of heapify(): refer this link https://www.youtube.com/watch?v=2e-d5FQFrzc
-
 Time complexity of heap sort: O(nlog(n))
 
 Steps:
