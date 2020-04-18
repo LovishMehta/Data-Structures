@@ -1,0 +1,107 @@
+A graph is an abstract data structure that implements the mathematical defination of graph.
+
+Mathematical defination:
+A Graph G is composed by a set of N vertices or nodes, connected through a set of E edges or links.
+G = (E,V)
+
+A graph G consist of two things:
+- A set V of elements called nodes(or points or vertices)
+- A set E of edges such that each edge e in E is identified with a unique(unordered)
+  pair [u,v] of nodes in V, denoted by e = [u,v]
+- We indicate the parts of the graph by writing G = (V,E)
+
+Adjacent Nodes:
+If e = [u,v], then u and v are nodes called end points of e. u and v are said to be
+adjacent nodes or neighbors.
+
+Degree of node:
+the degree of node u, written deg(u), is the number of edges containing u.
+(degree ek node ki is baat p depend karti hai ki usme se kitni edges nikal rhi hai)
+
+Isolated Node:
+if degree of a node u is 0, then u is called an isolated node.
+
+Path: 
+A path of length n from a node u to a node v is defined as a sequence of n+1 nodes.
+P=(v0,v1,v2,....,vn)
+
+Closed Path:
+The path is said to be closed if starting node and last node( or end node) is same i.e. v0 = vn.
+P = (v0,v1,v2,v3,v0)
+
+Simple Path:
+The path is said to be simple path if all the nodes are distinct, with the exception that v0 may
+equal vn.
+
+Connected Graph:
+A graph is said to be connected if there is a path between any two of its nodes.
+
+Tree:
+- A connected graph T without any cycles is called a tree graph or free tree or simply a tree
+- This means in particular, that there is a unique simple path P between any two nodes u and v in T.
+- If T is finite Tree with m nodes, then T will have m-1 edges.
+
+Labelled / Weighted Graph
+- A graph is said to be labelled if its edges are assigned data.
+- A graph G is said to be weighed if each edge e in G is assignd a non negative numerical value w(e)
+  called the weight or length of e.
+  
+Multiple edges:
+Distinct edges e and e' are called mutiple edges if they connect the same end points, i.e. 
+if e=[u,v] and e'=[u,v].
+
+Loop:
+An edge is called a loop if it has identical end points, that is if e=[u,u].
+
+Multi-graph:
+Multi-graph is a graph consisting of multiple edges and loops.
+
+Graph Types : Two types
+1. Directed Graph
+2. Undirected Graph
+
+Directed Graph:
+A directed graph G also called digraph or graph is same as multi-graph except that each edge e in G is 
+assigned a direction, or in other words, each edge e is identified with an ordered pair (u,v) of nodes
+in G rather than an unordered pair [u,v].
+Suppose G is directed graph with directed edges e=(u,v). Then e is also called an arc.
+
+Complete Graph: (jis graph mai har do nodes connected ho)
+A simple graph in which there exist an edge between every pair of vertices is called a complete graph.
+It is also known as a universal graph or clique.
+
+Null Graph:
+A graph without any edge is called a null graph.
+In other words, every vertex in a null graph is an isolated vertex.
+
+Sub graph: (subset of graph)
+A graph G'=(V',E') is a sub-graph of graph G=(V,E) if V' is a subset of V and E' is a subset of E.
+Thus for G' to be a sub-graph of G, all the vertices and edges of G' should be in G.
+
+Representation of graph DS
+There are three ways to represent graph data structure
+1. Adjacency Matrix
+2. Adjacency List
+3. Adjacency Set
+
+1. Adjacency Matrix:(In this we make a matrix and store 1's and 0's to show the nodes which are connected to each other)
+
+  To represent graph we need number of vertices, number of edges and also their interconnections.
+   struct Graph{
+          int V;
+          int E;
+          int **Adj;
+        };
+        
+2. Adjacency List: (In this we use linked list)
+
+     struct ListNode{
+             int VertexNo;
+             struct ListNode *next;
+             };
+             
+     struct Graph{
+             int V;
+             int E;
+             int ListNode *Adj;
+             };
