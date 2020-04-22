@@ -1,0 +1,51 @@
+Iterative Solution of DFS
+
+vodi dfs(int s,vector<int> g[],bool vis[])
+{
+  stack<int> S;
+  S.push(s);
+  
+  while(!S.empty())
+  {
+   int temp = S.top();
+   s.pop();
+   
+   if(!vis{temp])
+   {
+     cout<<temp<<" ";
+     vis[temp] = true;
+   }
+   
+   for(auto i = g[temp].begin();i!=g[temp].end();i++)
+     {
+        if(!vis[*i])
+         s.push(*i);
+     }
+  }
+  
+}
+
+Recursive solution of DFS
+
+void dfsutil(int s,vector<int> g[],bool vis[])
+{
+  cout<<s<<" ";
+  vis[s] = true;
+  
+  for(auto i=g[s].begin();i!=s.end();i++)
+  {
+     if(!vis[*i])
+      dfsutil(*i,g,vis)
+  }
+}
+
+void dfs(int v,vector<int> g[],bool vis[])
+{
+   for(auto i=0;i<v;i++)
+   {
+      if(!vis[i])
+      dfsutil(i,g,vis);
+   }
+}
+  
+  
