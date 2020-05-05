@@ -1,0 +1,107 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+void adjList(vector<int> adj[])
+{
+    for(int i=1;i<=24;i++)
+    {
+        for(int j=i+1;j<=6+i;j++)
+        adj[i].push_back(j);
+    }
+    for(int i=25;i<30;i++)
+    {
+        for(int j=i+1;j<=30;j++)
+        adj[i].push_back(j);
+    }
+}
+
+void printAdj(vector<int> adj[])
+{
+    for(int i=1;i<30;i++)
+    {
+        cout<<i;
+        for(int j=0;j<adj[i].size();j++)
+        cout<<"->"<<adj[i][j];
+        cout<<endl;
+    }
+}
+
+bool findLadder(vector<pair<int,int>> ladder,int start,int end)
+{
+    for(int i=0;i<ladder.size();i++)
+    {
+        if(start==ladder[i].first&&end==ladder[i].second)
+        return true;
+    }
+    return false;
+}
+void bfs(vector<int> adj[],int distance[],vector<pair<int,int>> ladder)   
+{
+    bool vis[31];
+    for(int i=0;i<=30;i++)
+    vis[i] = false;
+    
+    vis[1] = true;
+    queue<int> q;
+    q.push(1);
+    distance[1]=0;
+    
+    while(!q.empty())
+    {
+        int temp = q.front();
+        q.pop();
+        for(int i=0;i<adj[temp].size();i++)
+        {
+            if(!vis[adj[temp][i]]||distance[adj[temp][i]]>distance[temp]+1)    
+            {
+                q.push(adj[temp][i]);
+                vis[adj[temp][i]]=true;
+                
+                if(findLadder(ladder,temp,adj[temp][i]))
+                {
+                    distance[adj[temp][i]] = distance[temp];
+                   // cout<<adj[temp][i]<<" "<<distance[adj[temp][i]]<<endl;
+                }
+                
+                else
+                distance[adj[temp][i]] = distance[temp]+1;       
+            }
+        }
+    }
+}
+int main() {
+	//cod
+	int T;
+	cin>>T;
+	while(T--)
+	{
+	    int N;
+	    cin>>N;
+	    int distance[31];
+	    
+	    for(int i=2;i<=30;i++)
+	       distance[i]=0;
+	    
+	    vector<int> adj[31];
+	    adjList(adj);
+	 
+	 int x,y;
+	 vector<pair<int,int>> ladder;
+	 for(int i=0;i<N;i++)
+	 {
+	     cin>>x>> y;
+	     if(x<y)
+	     ladder.push_back(make_pair(x,y));
+	     adj[x].push_back(y);
+	 }
+// 	 for(int i=0;i<ladder.size();i++)
+// 	  cout<<ladder[i].first<<" "<<ladder[i].second;
+// 	 cout<<endl;
+	 bfs(adj,distance,ladder);
+	 //for(int i=0;i<=30;i++)
+	 cout<<distance[30]<<endl;
+	   //printAdj(adj);
+	}
+	return 0;
+}
